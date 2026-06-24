@@ -1,0 +1,38 @@
+[
+  {
+    "id": "azka-topup",
+    "title": "AZKA TOP UP",
+    "description": "Platform top up game berbasis web dengan sistem pembayaran otomatis.",
+    "tags": ["Next.js", "Supabase", "Tailwind"],
+    "category": "web",
+    "url": "",
+    "github": ""
+  },
+  {
+    "id": "flowtask",
+    "title": "FlowTask / Vorxa",
+    "description": "Aplikasi manajemen tugas dan produktivitas dengan UI yang bersih.",
+    "tags": ["Next.js", "TypeScript", "Supabase"],
+    "category": "web",
+    "url": "",
+    "github": ""
+  },
+  {
+    "id": "sigizi",
+    "title": "SIGIZI",
+    "description": "Sistem informasi gizi berbasis web untuk monitoring nutrisi.",
+    "tags": ["Laravel", "MySQL", "Tailwind"],
+    "category": "web",
+    "url": "",
+    "github": ""
+  },
+  {
+    "id": "project-4",
+    "title": "Project Placeholder",
+    "description": "Deskripsi project akan diupdate.",
+    "tags": ["Next.js", "TypeScript"],
+    "category": "other",
+    "url": "",
+    "github": ""
+  }
+]
