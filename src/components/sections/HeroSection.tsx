@@ -1,0 +1,121 @@
+'use client'
+
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+
+const VIDEOS = [
+  '/assets/video/hero1.mp4',
+  '/assets/video/hero2.mp4',
+  '/assets/video/hero3.mp4',
+]
+
+export function HeroSection() {
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+
+  return (
+    <section id='hero' className='relative min-h-screen flex items-center justify-center overflow-hidden bg-mc-void'>
+      {/* Video background */}
+      <AnimatePresence initial={false}>
+        <motion.video
+          key={VIDEOS[currentVideoIndex]}
+          src={VIDEOS[currentVideoIndex]}
+          className='absolute inset-0 w-full h-full object-cover'
+          autoPlay
+          muted={true}
+          playsInline
+          onEnded={() => setCurrentVideoIndex((prev) => (prev + 1) % VIDEOS.length)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.8 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5 }}
+        />
+      </AnimatePresence>
+
+      {/* Overlay gradient so text is readable while keeping video visible */}
+      <div className='absolute inset-0 bg-gradient-to-b from-mc-void/60 via-transparent to-mc-void/90' />
+      <div className='absolute inset-0 bg-mc-void/30 mix-blend-multiply' />
+
+      {/* Content */}
+      <div className='relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center mt-16 w-full'>
+        
+        {/* Badge */}
+        <motion.div
+          className='flex items-center gap-2 px-5 py-2 rounded-full border border-mc-gold/40 bg-mc-void/60 backdrop-blur-sm mb-6 shadow-xl'
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <svg className="w-4 h-4 text-mc-gold" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+          </svg>
+          <span className='font-pixel text-mc-gold text-[10px] sm:text-xs tracking-[0.2em]'>MINECRAFT DEVELOPER</span>
+        </motion.div>
+
+        {/* Main Title */}
+        <motion.h1
+          className='font-pixel text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] leading-none mb-6 tracking-[0.05em]'
+          style={{ textShadow: '0 6px 0 rgba(0,0,0,0.5)' }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4, type: 'spring' }}
+        >
+          <span className="text-mc-white">Azka</span>
+          <span className="text-mc-lava">Labib</span>
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          className='text-mc-white/90 text-base md:text-xl mb-4 font-medium max-w-2xl'
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          Crafting Digital Experiences in the Minecraft Universe
+        </motion.p>
+
+        {/* Typewriter text */}
+        <motion.p
+          className='font-pixel text-mc-gold text-xs md:text-sm mb-12 tracking-wider'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+        >
+          ...Server Developer<span className="animate-pulse">_</span>
+        </motion.p>
+
+        {/* Action Buttons */}
+        <motion.div
+          className='flex flex-col sm:flex-row gap-5 justify-center'
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1 }}
+        >
+          {/* Primary Action Button */}
+          <a href="#projects" className="group relative flex items-center justify-center gap-3 px-8 py-4 font-pixel text-xs sm:text-sm text-mc-gold bg-gradient-to-b from-[#8f3600] to-[#5e2000] border-2 border-[#b34000] hover:brightness-110 transition-all shadow-[inset_0_2px_0_rgba(255,255,255,0.1),_0_4px_0_#3d1300]">
+            <svg className="w-5 h-5 text-mc-gold" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" /></svg>
+            VIEW PROJECTS
+          </a>
+          
+          {/* Secondary Action Button */}
+          <a href="#contact" className="group relative flex items-center justify-center gap-3 px-8 py-4 font-pixel text-xs sm:text-sm text-mc-white bg-mc-void/40 border-2 border-mc-white/30 backdrop-blur-md hover:bg-mc-white/10 hover:border-mc-white/50 transition-all shadow-[0_4px_0_rgba(0,0,0,0.5)]">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            CONTACT ME
+          </a>
+        </motion.div>
+      </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className='absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer z-20'
+        animate={{ y: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 1.5 }}
+        onClick={() => {
+          document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
+        }}
+      >
+        <span className='font-pixel text-mc-white/70 text-[10px] tracking-widest'>SCROLL DOWN</span>
+        <svg className="w-6 h-6 text-mc-lava" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7"/></svg>
+      </motion.div>
+    </section>
+  )
+}
