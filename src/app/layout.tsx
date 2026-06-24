@@ -23,7 +23,7 @@ export const viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='id' className={pixelFont.variable}>
+    <html lang='id' className={`${pixelFont.variable} scroll-smooth`}>
       <body className='bg-mc-void antialiased'>
         <LoadingScreen />
         <Navbar />
