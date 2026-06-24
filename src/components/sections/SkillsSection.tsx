@@ -52,15 +52,27 @@ export function SkillsSection() {
       <div className='grid lg:grid-cols-[1fr_2fr] gap-12 max-w-[1200px] mx-auto px-6 md:px-12 py-24'>
         
         {/* Left column */}
-        <div>
-          <span className='font-pixel text-mc-lava-dark text-sm tracking-widest mb-4 block'>
-          </span>
+        <div className='lg:sticky lg:top-32 lg:self-start flex flex-col'>
           <h2 className='font-pixel text-5xl md:text-6xl flex flex-col gap-2 mb-6'>
-            <span className='text-mc-gold'>SKILLS</span>
+            <span className='text-mc-gold'>Tech Stack</span>
           </h2>
-          <p className='text-mc-gray/80 leading-relaxed text-sm md:text-base'>
+          <p className='text-mc-gray/80 leading-relaxed text-sm md:text-base mb-10'>
             Here is a curated list of tools and technologies I use to build scalable, high-performance applications across web and mobile platforms.
           </p>
+
+          {/* Stats Row */}
+          <div className='flex items-center gap-6 mb-12'>
+            <div className='flex flex-col'>
+              <span className='font-pixel text-4xl text-mc-gold mb-2'>{skills.length}</span>
+              <span className='text-xs uppercase tracking-wider text-mc-gray/60'>TECHNOLOGIES</span>
+            </div>
+            <div className='h-12 w-px bg-white/10'></div>
+            <div className='flex flex-col'>
+              <span className='font-pixel text-4xl text-mc-gold mb-2'>1</span>
+              <span className='text-xs uppercase tracking-wider text-mc-gray/60'>YEARS EXPERIENCE</span>
+            </div>
+          </div>
+
         </div>
 
         {/* Right column */}
