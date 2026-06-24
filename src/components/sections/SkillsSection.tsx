@@ -2,29 +2,100 @@
 
 import { motion } from 'framer-motion'
 import { SectionWrapper } from '@/components/ui/SectionWrapper'
-import { SectionTitle } from '@/components/ui/SectionTitle'
-import { Skill } from '@/types'
-import skillsData from '@/data/skills.json'
+import { IconType } from 'react-icons'
+import {
+  SiNextdotjs,
+  SiReact,
+  SiTypescript,
+  SiTailwindcss,
+  SiFramer,
+  SiLaravel,
+  SiNodedotjs,
+  SiSupabase,
+  SiMysql,
+  SiPostgresql,
+  SiKotlin,
+  SiFlutter,
+  SiDocker,
+  SiGit,
+  SiGithub,
+} from 'react-icons/si'
 
-const skills = skillsData as Skill[]
+interface SkillItem {
+  name: string
+  icon: IconType
+  type: string
+  color: string
+}
+
+const skills: SkillItem[] = [
+  { name: 'Next.js', icon: SiNextdotjs, type: 'FRAMEWORK', color: '#ffffff' },
+  { name: 'React', icon: SiReact, type: 'LIBRARY', color: '#61DAFB' },
+  { name: 'TypeScript', icon: SiTypescript, type: 'LANGUAGE', color: '#3178C6' },
+  { name: 'Tailwind CSS', icon: SiTailwindcss, type: 'STYLING', color: '#06B6D4' },
+  { name: 'Framer Motion', icon: SiFramer, type: 'MOTION', color: '#0055FF' },
+  { name: 'Laravel', icon: SiLaravel, type: 'FRAMEWORK', color: '#FF2D20' },
+  { name: 'Node.js', icon: SiNodedotjs, type: 'RUNTIME', color: '#339933' },
+  { name: 'Supabase', icon: SiSupabase, type: 'DATABASE', color: '#3ECF8E' },
+  { name: 'MySQL', icon: SiMysql, type: 'DATABASE', color: '#4479A1' },
+  { name: 'PostgreSQL', icon: SiPostgresql, type: 'DATABASE', color: '#4169E1' },
+  { name: 'Kotlin', icon: SiKotlin, type: 'LANGUAGE', color: '#7F52FF' },
+  { name: 'Flutter', icon: SiFlutter, type: 'MOBILE', color: '#02569B' },
+  { name: 'Docker', icon: SiDocker, type: 'TOOL', color: '#2496ED' },
+  { name: 'Git', icon: SiGit, type: 'VERSION CONTROL', color: '#F05032' },
+  { name: 'GitHub', icon: SiGithub, type: 'TOOL', color: '#ffffff' },
+]
 
 export function SkillsSection() {
   return (
     <SectionWrapper id='skills'>
-      <SectionTitle title='Skills & Arsenal' subtitle='Tools & technologies in my inventory' />
-      <div className='grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 max-w-4xl mx-auto'>
-        {skills.map((skill, i) => (
-          <motion.div
-            key={skill.name}
-            className='bg-mc-obsidian border border-mc-cobble p-3 text-center hover:border-mc-lava transition-colors duration-200'
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.04 }}
-          >
-            <p className='text-mc-gray text-xs'>{skill.name}</p>
-          </motion.div>
-        ))}
+      <div className='grid lg:grid-cols-[1fr_2fr] gap-12 max-w-[1200px] mx-auto px-6 md:px-12 py-24'>
+        
+        {/* Left column */}
+        <div>
+          <span className='font-pixel text-mc-lava-dark text-sm tracking-widest mb-4 block'>
+          </span>
+          <h2 className='font-pixel text-5xl md:text-6xl flex flex-col gap-2 mb-6'>
+            <span className='text-mc-gold'>SKILLS</span>
+          </h2>
+          <p className='text-mc-gray/80 leading-relaxed text-sm md:text-base'>
+            Here is a curated list of tools and technologies I use to build scalable, high-performance applications across web and mobile platforms.
+          </p>
+        </div>
+
+        {/* Right column */}
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6'>
+          {skills.map((skill, index) => {
+            const Icon = skill.icon
+            return (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.04 }}
+                className='flex flex-col group'
+              >
+                <div className='text-3xl mb-3 hover:brightness-125 transition-all duration-300' style={{ color: skill.color }}>
+                  <Icon />
+                </div>
+                <h3 className='font-bold text-mc-white mb-1'>
+                  {skill.name}
+                </h3>
+                <span className='text-xs uppercase tracking-wider text-mc-gray/60 mb-2'>
+                  {skill.type}
+                </span>
+                
+                {/* Divider */}
+                <div className='flex items-center'>
+                  <div className='w-6 h-px bg-mc-gold' />
+                  <div className='flex-1 h-px bg-mc-white/10' />
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
+
       </div>
     </SectionWrapper>
   )
