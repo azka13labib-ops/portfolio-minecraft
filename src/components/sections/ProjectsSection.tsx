@@ -1,60 +1,52 @@
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { SectionWrapper } from '@/components/ui/SectionWrapper'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { ProjectCard } from '@/components/ui/ProjectCard'
 import { Project } from '@/types'
 import projectsData from '@/data/projects.json'
-import { cn } from '@/lib/utils'
 
 const projects = projectsData as Project[]
-const CATEGORIES = ['all', 'web', 'mobile', 'fullstack', 'other'] as const
 
 export function ProjectsSection() {
-  const [active, setActive] = useState<string>('all')
-
-  const filtered = active === 'all'
-    ? projects
-    : projects.filter((p) => p.category === active)
+  const [featured, ...rest] = projects
 
   return (
-    <SectionWrapper id='projects' className='relative'>
-      {/* Warm radial glow for deep cave ambient light */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-orange-600/10 rounded-full blur-[100px] -z-10 pointer-events-none" />
-      <SectionTitle title='Projects' subtitle='Things I have built' />
+    <SectionWrapper id='projects' className='relative overflow-hidden'>
+      {/* Ambient glow */}
+      <div className='absolute top-0 right-0 w-96 h-96 bg-mc-lava/5 rounded-full blur-[120px] -z-10 pointer-events-none' />
+      <div className='absolute bottom-0 left-0 w-80 h-80 bg-orange-900/10 rounded-full blur-[100px] -z-10 pointer-events-none' />
 
-      {/* Filter tabs */}
-      <div className='flex gap-2 justify-center flex-wrap mb-10'>
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActive(cat)}
-            className={cn(
-              'font-pixel text-xs px-4 py-1.5 border transition-colors duration-150',
-              active === cat
-                ? 'bg-mc-lava border-mc-lava text-mc-white'
-                : 'border-mc-cobble text-mc-gray hover:border-mc-lava hover:text-mc-lava'
-            )}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+      <SectionTitle title='Projects' subtitle='Things I have shipped' />
 
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto'>
-        {filtered.map((project, i) => (
+      <div className='max-w-6xl mx-auto flex flex-col gap-5'>
+        {/* Featured card */}
+        {featured && (
           <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.08 }}
+            transition={{ duration: 0.5 }}
           >
-            <ProjectCard project={project} />
+            <ProjectCard project={featured} featured />
           </motion.div>
-        ))}
+        )}
+
+        {/* Grid of smaller cards */}
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
+          {rest.map((project, i) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </SectionWrapper>
   )
