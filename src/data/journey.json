@@ -1,32 +1,33 @@
 [
   {
-    "year": "2024",
+    "year": "2025",
     "title": "Mulai Belajar Web Development",
     "description": "Pertama kali terjun ke dunia programming, mulai dari HTML/CSS dasar sampai Next.js.",
     "label": "The Beginning"
   },
   {
-    "year": "2024",
+    "year": "2025",
     "title": "Project Pertama — AZKA TOP UP",
     "description": "Membangun platform top up game pertama dengan sistem pembayaran.",
     "label": "First Project"
   },
   {
-    "year": "2025",
+    "year": "2026",
     "title": "FlowTask & Vorxa",
     "description": "Eksplorasi produktivitas app dan mulai belajar arsitektur yang lebih kompleks.",
     "label": "Growing"
   },
   {
-    "year": "2025",
+    "year": "2026",
     "title": "Explore Go & Kotlin",
     "description": "Mulai belajar backend dengan Go dan mobile development dengan Kotlin & Flutter.",
     "label": "Expanding"
   },
   {
-    "year": "2025",
+    "year": "2026",
     "title": "Still Growing",
     "description": "Terus berkembang, belajar hal baru, dan terbuka untuk project & kolaborasi.",
     "label": "Present"
   }
 ]
+

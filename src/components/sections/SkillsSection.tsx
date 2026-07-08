@@ -50,7 +50,9 @@ export function SkillsSection() {
   const techCount = skills.length
   const techLabel = `${techCount === 1 ? 'TECHNOLOGY' : 'TECHNOLOGIES'}`
 
-  const expYears = 1
+  const startYear = 2025
+  const currentYear = new Date().getFullYear()
+  const expYears = Math.max(1, currentYear - startYear)
   const expLabel = `${expYears === 1 ? 'YEAR' : 'YEARS'} EXPERIENCE`
 
   return (
