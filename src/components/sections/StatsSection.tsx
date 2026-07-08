@@ -50,7 +50,7 @@ export function StatsSection() {
   }, [])
 
   return (
-    <SectionWrapper id='stats'>
+    <SectionWrapper id='stats' className='pb-12' style={{ background: 'linear-gradient(to bottom, #000000, #1a1a1a)' }}>
       <SectionTitle title='Scoreboard' subtitle='My achievements in numbers' />
       <div className='grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto'>
         {stats.map((stat, i) => (
