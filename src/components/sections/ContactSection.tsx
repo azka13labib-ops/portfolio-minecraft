@@ -37,7 +37,7 @@ export function ContactSection() {
   }
 
   return (
-    <SectionWrapper id='contact' className='pt-8 pb-24 relative' style={{ background: 'linear-gradient(to bottom, #1a1a1a, #000000)' }}>
+    <SectionWrapper id='contact' className='pt-8 pb-24 relative'>
       <SectionTitle title='Contact' subtitle="Get in touch" />
 
       {/* Simple Toast */}
