@@ -45,7 +45,7 @@ export function AboutSection() {
             <div className='relative w-full h-full rounded-full overflow-hidden border-4 border-mc-lava shadow-[0_0_30px_rgba(255,102,0,0.3)] bg-mc-stone'>
               {/* TODO: ganti src dengan path foto kamu */}
               <Image
-                src='/assets/images/image.png'
+                src='/assets/images/profile.jpeg'
                 alt='Azka Labib'
                 fill
                 sizes='(max-width: 768px) 224px, 256px'
