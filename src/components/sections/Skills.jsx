@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SiNextdotjs, SiReact, SiTailwindcss, SiHtml5, SiJavascript, SiNodedotjs, SiLaravel, SiPostgresql, SiFigma, SiFramer, SiAxios } from "react-icons/si";
-import { FaMobileAlt, FaCubes } from "react-icons/fa";
+import { SiNextdotjs, SiReact, SiTailwindcss, SiHtml5, SiJavascript, SiNodedotjs, SiLaravel, SiPostgresql, SiFigma, SiFramer, SiAxios, SiMysql, SiGo } from "react-icons/si";
+import { FaMobileAlt, FaCubes, FaServer } from "react-icons/fa";
 
 export default function Skills() {
   const sectionRef = useRef(null);
@@ -101,7 +101,7 @@ export default function Skills() {
     },
     // --- BACKEND ---
     {
-      name: "Node.js",
+      name: "Node.js Runtime",
       category: "Backend",
       desc: "Asynchronous event-driven JavaScript runtime for scalable network applications.",
       icon: <SiNodedotjs className="w-10 h-10" />
@@ -117,6 +117,24 @@ export default function Skills() {
       category: "Backend",
       desc: "Relational database system for ACID-compliant structured data schemas.",
       icon: <SiPostgresql className="w-10 h-10" />
+    },
+    {
+      name: "MySQL",
+      category: "Backend",
+      desc: "Open-source relational database management system.",
+      icon: <SiMysql className="w-10 h-10" />
+    },
+    {
+      name: "RESTful API",
+      category: "Backend",
+      desc: "Architectural style for an application program interface (API).",
+      icon: <FaServer className="w-10 h-10" />
+    },
+    {
+      name: "Golang",
+      category: "Backend",
+      desc: "Statically typed, compiled programming language designed for scalable servers.",
+      icon: <SiGo className="w-10 h-10" />
     },
     // --- UI/UX ---
     {
