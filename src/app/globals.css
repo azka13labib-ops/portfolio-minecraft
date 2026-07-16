@@ -1,35 +1,43 @@
 @import "tailwindcss";
 
-:root {
-  --background: #0a0a0a;
-  --foreground: #f5f5f5;
+@theme {
+  --font-orbitron: var(--font-orbitron);
+  --font-caveat: var(--font-caveat);
+  --font-mono: var(--font-mono);
+  
+  --animate-marquee: marquee 30s linear infinite;
+  
+  @keyframes marquee {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+  }
 }
 
-@theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  
-  /* Minecraft Theme Colors */
-  --color-mc-void: #0a0a0a;
-  --color-mc-obsidian: #1a1a1a;
-  --color-mc-stone: #2d2d2d;
-  --color-mc-cobble: #3c3c3c;
-  --color-mc-lava: #ff6600;
-  --color-mc-lava-light: #ff8533;
-  --color-mc-lava-dark: #cc5200;
-  --color-mc-grass: #5d8c3e;
-  --color-mc-dirt: #7a5230;
-  --color-mc-gold: #fbbf24;
-  --color-mc-sky: #6ebee8;
-  --color-mc-white: #f5f5f5;
-  --color-mc-gray: #a0a0a0;
+.font-orbitron {
+  font-family: var(--font-orbitron), sans-serif;
+}
 
-  /* Fonts */
-  --font-pixel: var(--font-pixel), monospace;
+.font-caveat {
+  font-family: var(--font-caveat), cursive;
+}
+
+.font-mono {
+  font-family: var(--font-mono), monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: black;
+  color: white;
 }
+
+/* Global Selection styling */
+::selection {
+  background-color: #FB64B6;
+  color: black;
+}
+
+
+
+
+
+
