@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SiNextdotjs, SiReact, SiTailwindcss, SiHtml5, SiJavascript, SiNodedotjs, SiLaravel, SiPostgresql, SiFigma, SiFramer, SiAxios, SiMysql, SiGo } from "react-icons/si";
-import { FaMobileAlt, FaCubes, FaServer } from "react-icons/fa";
+import { FaMobileAlt, FaCubes, FaServer, FaPenNib, FaProjectDiagram, FaLayerGroup, FaPlayCircle } from "react-icons/fa";
 
 export default function Skills() {
   const sectionRef = useRef(null);
@@ -138,16 +138,40 @@ export default function Skills() {
     },
     // --- UI/UX ---
     {
+      name: "Wireframing",
+      category: "UI/UX",
+      desc: "Creating structural blueprints for web and mobile interfaces.",
+      icon: <FaPenNib className="w-10 h-10" />
+    },
+    {
       name: "Figma",
       category: "UI/UX",
       desc: "Collaborative interface design tool for wireframing and prototyping.",
       icon: <SiFigma className="w-10 h-10" />
     },
     {
-      name: "Framer",
+      name: "User Flow",
       category: "UI/UX",
-      desc: "Interactive design tool for creating high-fidelity realistic web prototypes.",
-      icon: <SiFramer className="w-10 h-10" />
+      desc: "Mapping intuitive user journeys and navigation structures.",
+      icon: <FaProjectDiagram className="w-10 h-10" />
+    },
+    {
+      name: "Design System",
+      category: "UI/UX",
+      desc: "Building consistent, reusable component libraries and guidelines.",
+      icon: <FaLayerGroup className="w-10 h-10" />
+    },
+    {
+      name: "Prototyping",
+      category: "UI/UX",
+      desc: "Developing interactive mockups to simulate user experiences.",
+      icon: <FaPlayCircle className="w-10 h-10" />
+    },
+    {
+      name: "Responsive UI Design",
+      category: "UI/UX",
+      desc: "Designing adaptive interfaces for multiple screen sizes.",
+      icon: <FaMobileAlt className="w-10 h-10" />
     },
   ];
 
