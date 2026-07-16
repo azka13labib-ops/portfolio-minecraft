@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SiNextdotjs, SiReact, SiTailwindcss, SiHtml5, SiCss3, SiGreensock, SiJavascript, SiNodedotjs, SiLaravel, SiPostgresql, SiFigma, SiFramer } from "react-icons/si";
+import { SiNextdotjs, SiReact, SiTailwindcss, SiHtml5, SiCss, SiGreensock, SiJavascript, SiNodedotjs, SiLaravel, SiPostgresql, SiFigma, SiFramer } from "react-icons/si";
 
 export default function Skills() {
   const sectionRef = useRef(null);
@@ -62,7 +62,7 @@ export default function Skills() {
       name: "CSS",
       category: "Front End",
       desc: "Cascading style sheets for web presentation.",
-      icon: <SiCss3 className="w-10 h-10" />
+      icon: <SiCss className="w-10 h-10" />
     },
     {
       name: "GSAP Animation",
