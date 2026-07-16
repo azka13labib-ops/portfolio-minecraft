@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Skills() {
   const sectionRef = useRef(null);
+  const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -31,8 +32,10 @@ export default function Skills() {
   }, []);
 
   const skillItems = [
+    // --- FRONT END ---
     {
       name: "Next.js",
+      category: "Front End",
       desc: "React framework for production-grade static & server-rendered apps.",
       icon: (
         <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
@@ -42,6 +45,7 @@ export default function Skills() {
     },
     {
       name: "React",
+      category: "Front End",
       desc: "Component-based declarative library for building user interfaces.",
       icon: (
         <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
@@ -50,16 +54,8 @@ export default function Skills() {
       ),
     },
     {
-      name: "Laravel",
-      desc: "Elegant MVC PHP framework for robust, scalable backend services.",
-      icon: (
-        <svg className="w-8 h-8 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-        </svg>
-      ),
-    },
-    {
       name: "Tailwind CSS",
+      category: "Front End",
       desc: "Utility-first styling workflow for rapid responsive layouts.",
       icon: (
         <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
@@ -69,6 +65,7 @@ export default function Skills() {
     },
     {
       name: "GSAP",
+      category: "Front End",
       desc: "Advanced scrolling timelines and high-performance WebGL animations.",
       icon: (
         <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
@@ -76,8 +73,30 @@ export default function Skills() {
         </svg>
       ),
     },
+    // --- BACKEND ---
+    {
+      name: "Node.js",
+      category: "Backend",
+      desc: "Asynchronous event-driven JavaScript runtime for scalable network applications.",
+      icon: (
+        <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
+          <path d="M221.72,74.56l-85.33-49.27a15.93,15.93,0,0,0-16,0L35,74.56A15.94,15.94,0,0,0,27.08,88.42v98.54A15.94,15.94,0,0,0,35,200.82l85.33,49.26a15.93,15.93,0,0,0,16,0l85.34-49.26A15.94,15.94,0,0,0,229.75,187V88.42A15.94,15.94,0,0,0,221.72,74.56Zm-9.15,108.93-85.33,49.26-85.34-49.26V88.42l85.34-49.27L212.57,88.42Z" />
+        </svg>
+      ),
+    },
+    {
+      name: "Laravel",
+      category: "Backend",
+      desc: "Elegant MVC PHP framework for robust, scalable backend services.",
+      icon: (
+        <svg className="w-8 h-8 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+    },
     {
       name: "PostgreSQL",
+      category: "Backend",
       desc: "Relational database system for ACID-compliant structured data schemas.",
       icon: (
         <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
@@ -85,7 +104,34 @@ export default function Skills() {
         </svg>
       ),
     },
+    // --- UI/UX ---
+    {
+      name: "Figma",
+      category: "UI/UX",
+      desc: "Collaborative interface design tool for wireframing and prototyping.",
+      icon: (
+        <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
+          <path d="M168,136a40,40,0,1,1-40-40A40,40,0,0,1,168,136Zm-40,40a40,40,0,1,0-40-40h40Zm-40-80a40,40,0,1,0,40,40V96H88a40,40,0,0,0-40,40Z" />
+        </svg>
+      ),
+    },
+    {
+      name: "Framer",
+      category: "UI/UX",
+      desc: "Interactive design tool for creating high-fidelity realistic web prototypes.",
+      icon: (
+        <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
+          <path d="M128,16L208,96H48ZM48,96L128,176H48ZM208,96L128,176H208V176L128,256V176Z" />
+        </svg>
+      ),
+    },
   ];
+
+  const categories = ["All", "Front End", "Backend", "UI/UX"];
+
+  const filteredItems = skillItems.filter(
+    (item) => activeCategory === "All" || item.category === activeCategory
+  );
 
   return (
     <section
@@ -121,31 +167,61 @@ export default function Skills() {
           </p>
         </div>
 
-        {/* Reusable Skill Card Grid (Solid White on Pink) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillItems.map((item, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ 
-                scale: 1.03, 
-                borderColor: "#000000",
-                boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)"
-              }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="skill-card border-2 border-transparent p-6 rounded-2xl bg-white shadow-xl flex flex-col gap-4 cursor-default group"
+        {/* Category Filter Buttons */}
+        <div className="flex flex-wrap gap-3 my-6">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`relative px-6 py-2 rounded-full font-mono text-sm md:text-base font-bold tracking-wider transition-all duration-300 ${
+                activeCategory === cat
+                  ? "text-black shadow-[0_4px_15px_rgba(0,0,0,0.25)]"
+                  : "text-white/80 hover:text-white border border-white/30 hover:border-white/60 bg-transparent"
+              }`}
             >
-              <div className="text-neutral-400 group-hover:text-black transition-colors duration-300">
-                {item.icon}
-              </div>
-              <h3 className="font-orbitron font-black text-lg md:text-xl uppercase tracking-wider text-black">
-                {item.name}
-              </h3>
-              <p className="font-mono text-xs md:text-sm text-neutral-600 leading-relaxed">
-                {item.desc}
-              </p>
-            </motion.div>
+              {activeCategory === cat && (
+                <motion.div
+                  layoutId="activeCategoryPill"
+                  className="absolute inset-0 bg-white rounded-full -z-10"
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                />
+              )}
+              {cat}
+            </button>
           ))}
         </div>
+
+        {/* Reusable Skill Card Grid (Solid White on Pink) */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="popLayout">
+            {filteredItems.map((item) => (
+              <motion.div
+                layout
+                key={item.name}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3, type: "spring", stiffness: 250, damping: 20 }}
+                whileHover={{ 
+                  scale: 1.03, 
+                  borderColor: "#000000",
+                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)"
+                }}
+                className="skill-card border-2 border-transparent p-6 rounded-2xl bg-white shadow-xl flex flex-col gap-4 cursor-default group"
+              >
+                <div className="text-neutral-400 group-hover:text-black transition-colors duration-300">
+                  {item.icon}
+                </div>
+                <h3 className="font-orbitron font-black text-lg md:text-xl uppercase tracking-wider text-black">
+                  {item.name}
+                </h3>
+                <p className="font-mono text-xs md:text-sm text-neutral-600 leading-relaxed">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
       </div>
     </section>
