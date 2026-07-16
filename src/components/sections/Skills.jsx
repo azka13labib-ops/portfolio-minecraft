@@ -38,8 +38,8 @@ export default function Skills() {
       category: "Front End",
       desc: "React framework for production-grade static & server-rendered apps.",
       icon: (
-        <svg className="w-10 h-10 fill-current" viewBox="0 0 256 256">
-          <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm45.66-109.66a8,8,0,0,0-11.32,0L136,132.69V104a8,8,0,0,0-16,0v48a8,8,0,0,0,13.66,5.66l36-36A8,8,0,0,0,173.66,106.34Z" />
+        <svg className="w-10 h-10 fill-current" viewBox="0 0 24 24">
+          <path d="M12 24A12 12 0 1 0 12 0a12 12 0 0 0 0 24zM16.96 16.59l-6.83-9.15h-2.1v9.12h1.86v-6.6l5.77 7.73a9.98 9.98 0 0 1-5.66 1.73c-5.52 0-10-4.48-10-10s4.48-10 10-10 10 4.48 10 10c0 2.22-.72 4.27-1.93 5.92L16.96 16.6zM15.35 15h2v-9.13h-2v9.13z"/>
         </svg>
       ),
     },
@@ -48,8 +48,13 @@ export default function Skills() {
       category: "Front End",
       desc: "Component-based declarative library for building user interfaces.",
       icon: (
-        <svg className="w-10 h-10 fill-current" viewBox="0 0 256 256">
-          <path d="M224,128a16,16,0,0,1-16,16H144v64a16,16,0,0,1-32,0V144H48a16,16,0,0,1,0-32h64V48a16,16,0,0,1,32,0v64h64A16,16,0,0,1,224,128Z" />
+        <svg className="w-10 h-10 text-white" viewBox="-11.5 -10.23174 23 20.46348" fill="currentColor">
+          <circle cx="0" cy="0" r="2.05" fill="currentColor"/>
+          <g stroke="currentColor" strokeWidth="1" fill="none">
+            <ellipse rx="11" ry="4.2"/>
+            <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+            <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+          </g>
         </svg>
       ),
     },
@@ -58,8 +63,8 @@ export default function Skills() {
       category: "Front End",
       desc: "Utility-first styling workflow for rapid responsive layouts.",
       icon: (
-        <svg className="w-10 h-10 fill-current" viewBox="0 0 256 256">
-          <path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z" />
+        <svg className="w-10 h-10 fill-current" viewBox="0 0 24 24">
+          <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/>
         </svg>
       ),
     },
@@ -119,8 +124,8 @@ export default function Skills() {
       category: "Backend",
       desc: "Asynchronous event-driven JavaScript runtime for scalable network applications.",
       icon: (
-        <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
-          <path d="M221.72,74.56l-85.33-49.27a15.93,15.93,0,0,0-16,0L35,74.56A15.94,15.94,0,0,0,27.08,88.42v98.54A15.94,15.94,0,0,0,35,200.82l85.33,49.26a15.93,15.93,0,0,0,16,0l85.34-49.26A15.94,15.94,0,0,0,229.75,187V88.42A15.94,15.94,0,0,0,221.72,74.56Zm-9.15,108.93-85.33,49.26-85.34-49.26V88.42l85.34-49.27L212.57,88.42Z" />
+        <svg className="w-10 h-10 fill-current" viewBox="0 0 24 24">
+          <path d="M11.87 0a1.86 1.86 0 0 0-1.74.88L2.09 14.82a1.85 1.85 0 0 0 0 1.76l8.04 13.94c.48.83 1.23 1.26 2.06 1.26a2.18 2.18 0 0 0 1.9-1.07l8.28-14.34a2.23 2.23 0 0 0 0-2.12L14.3 0.28A2.32 2.32 0 0 0 12.27 0h-.4zm-2.09 5.86c1.17 0 1.8.63 1.8 1.85 0 1.26-.65 1.94-1.84 1.94-1.21 0-1.88-.63-1.88-1.92 0-1.28.66-1.87 1.92-1.87zm4.24 0h1.49v5.94h-1.49zm2.46.22c.67-.32 1.55-.4 2.23-.4 1.15 0 1.94.31 2.39 1.14.33.61.37 1.48.37 2.16 0 1.35-.49 2.15-1.15 2.62-.64.45-1.54.58-2.31.58-.63 0-1.47-.07-2.07-.3l.17-1.32c.57.26 1.34.35 1.87.35 1 0 1.91-.4 1.91-1.8 0-1.4-.92-1.82-1.93-1.82-.48 0-1.04.1-1.48.24zm-6.72 1.3h-1.48v5.86H7v-4.49H5.53v4.49H4v-5.86h1.5v1.27h1.5z"/>
         </svg>
       ),
     },
@@ -129,8 +134,8 @@ export default function Skills() {
       category: "Backend",
       desc: "Elegant MVC PHP framework for robust, scalable backend services.",
       icon: (
-        <svg className="w-8 h-8 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        <svg className="w-10 h-10 fill-current" viewBox="0 0 24 24">
+          <path d="M22.062 18.232l-9.053 4.887c-.643.347-1.375.347-2.018 0l-9.053-4.887c-.612-.33-.978-.931-.978-1.579v-9.339c0-.648.366-1.249.978-1.579L10.991 0.88c.643-.347 1.375-.347 2.018 0l9.053 4.855c.612.33.978.931.978 1.579v9.339c0 .648-.366 1.249-.978 1.579zM10.991 17.5l-6.85-3.696v-5.466l6.85 3.695v5.467zm2.018 0v-5.467l6.85-3.695v5.466l-6.85 3.696zm5.176-10.74l-6.185-3.336-6.185 3.336 6.185 3.336 6.185-3.336z"/>
         </svg>
       ),
     },
@@ -139,8 +144,8 @@ export default function Skills() {
       category: "Backend",
       desc: "Relational database system for ACID-compliant structured data schemas.",
       icon: (
-        <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
-          <path d="M200,64H152V40a8,8,0,0,0-16,0V64H88V40A8,8,0,0,0,72,40V64H56A16,16,0,0,0,40,80v96a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V80A16,16,0,0,0,200,64Zm0,112H56V80H200V176Z" />
+        <svg className="w-10 h-10 fill-current" viewBox="0 0 24 24">
+          <path d="M12.08 0c-4.8 0-7.31 3.55-7.31 7.21 0 4.67 3.51 6.8 6.57 6.8 1.34 0 2.53-.29 3.49-.78l.49-.24c-.04.42-.09.77-.14 1.1-.09.58-.23 1.05-.41 1.41-.21.43-.53.79-1 1.09-.79.52-2.11.83-3.61.83-1.63 0-3-.35-3.83-1.02-.32-.26-.58-.58-.77-.96a4.23 4.23 0 0 1-.36-1.74h-2.1c.07 1.14.33 2.11.8 2.87.69 1.1 1.83 1.93 3.37 2.44A13 13 0 0 0 10.87 20c.45.03.95.05 1.51.05 1.91 0 3.5-.32 4.71-.9 1.54-.74 2.68-1.89 3.29-3.23.46-1.03.68-2.31.68-3.79V5.15C21 2.22 17.61 0 12.08 0zm0 1.94c3.55 0 5.6 1.48 5.6 3.4v4.5c0 1.25-.33 2.12-.86 2.76-.51.62-1.32 1.04-2.36 1.25a13.2 13.2 0 0 1-2.92.29c-2.37 0-4.66-.63-4.66-3.24 0-1.87 2.15-3.67 5.76-3.67.75 0 1.43.1 2.05.27.13.04.3.09.43.15V5.51c0-1.04-1.35-1.92-3.6-1.92-1.57 0-2.82.34-3.5 1.02-.45.45-.73 1.02-.79 1.66h-1.95c0-1 .4-1.95 1.15-2.73 1.05-1.1 2.82-1.6 5.1-1.6z"/>
         </svg>
       ),
     },
@@ -150,8 +155,10 @@ export default function Skills() {
       category: "UI/UX",
       desc: "Collaborative interface design tool for wireframing and prototyping.",
       icon: (
-        <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
-          <path d="M168,136a40,40,0,1,1-40-40A40,40,0,0,1,168,136Zm-40,40a40,40,0,1,0-40-40h40Zm-40-80a40,40,0,1,0,40,40V96H88a40,40,0,0,0-40,40Z" />
+        <svg className="w-10 h-10 fill-current" viewBox="0 0 24 24">
+          <path d="M8 12a4 4 0 1 1 4-4H8a4 4 0 1 1 4 4z"/>
+          <path d="M8 12a4 4 0 1 0 8 0 4 4 0 1 0-8 0z"/>
+          <path d="M8 20a4 4 0 1 0 4-4H8v4z"/>
         </svg>
       ),
     },
@@ -160,8 +167,8 @@ export default function Skills() {
       category: "UI/UX",
       desc: "Interactive design tool for creating high-fidelity realistic web prototypes.",
       icon: (
-        <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
-          <path d="M128,16L208,96H48ZM48,96L128,176H48ZM208,96L128,176H208V176L128,256V176Z" />
+        <svg className="w-10 h-10 fill-current" viewBox="0 0 24 24">
+          <path d="M12 0L24 12H12l-12 12V12h12L0 0z"/>
         </svg>
       ),
     },
