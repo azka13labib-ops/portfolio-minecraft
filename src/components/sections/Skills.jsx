@@ -91,9 +91,9 @@ export default function Skills() {
     <section
       ref={sectionRef}
       id="skills"
-      className="relative w-full min-h-screen bg-white text-black py-32 px-8 md:px-16 lg:px-24 flex flex-col justify-center select-none"
+      className="relative w-full min-h-screen bg-[#FB64B6] text-white py-32 px-8 md:px-16 lg:px-24 flex flex-col justify-center select-none"
     >
-      {/* Smooth Wavy SVG Divider (Transition from Black to White) */}
+      {/* Smooth Wavy SVG Divider (Transition from Black to Pink) */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none transform translate-y-[-99%] pointer-events-none">
         <svg
           className="relative block w-full h-[80px] md:h-[120px]"
@@ -103,7 +103,7 @@ export default function Skills() {
         >
           <path
             d="M0,60 C300,120 600,0 900,100 C1050,150 1200,60 1200,60 L1200,120 L0,120 Z"
-            fill="#ffffff"
+            fill="#FB64B6"
           />
         </svg>
       </div>
@@ -112,29 +112,29 @@ export default function Skills() {
         
         {/* Intro Paragraph (Asymmetrical Typography) */}
         <div className="max-w-4xl">
-          <p className="font-mono text-neutral-800 tracking-wider text-base md:text-lg lg:text-xl leading-relaxed">
+          <p className="font-mono text-white/95 tracking-wider text-base md:text-lg lg:text-xl leading-relaxed">
             This section represents the core{" "}
-            <span className="font-caveat font-bold text-[#FB64B6] text-2xl md:text-3xl mx-1 inline-block -rotate-2">
+            <span className="font-caveat font-bold text-black text-2xl md:text-3xl mx-1 inline-block -rotate-2">
               technologies
             </span>{" "}
             and tools I use to build scalable, high-performance web applications with clean architecture and smooth user experiences.
           </p>
         </div>
 
-        {/* Reusable Skill Card Grid (Jangan Plek Ketiplek) */}
+        {/* Reusable Skill Card Grid (Solid White on Pink) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillItems.map((item, idx) => (
             <motion.div
               key={idx}
               whileHover={{ 
                 scale: 1.03, 
-                borderColor: "#FB64B6",
-                boxShadow: "0 10px 25px rgba(251, 100, 182, 0.15)"
+                borderColor: "#000000",
+                boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)"
               }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="skill-card border-2 border-neutral-200/80 p-6 rounded-2xl bg-neutral-50/50 backdrop-blur-sm flex flex-col gap-4 cursor-default group"
+              className="skill-card border-2 border-transparent p-6 rounded-2xl bg-white shadow-xl flex flex-col gap-4 cursor-default group"
             >
-              <div className="text-neutral-500 group-hover:text-[#FB64B6] transition-colors duration-300">
+              <div className="text-neutral-400 group-hover:text-black transition-colors duration-300">
                 {item.icon}
               </div>
               <h3 className="font-orbitron font-black text-lg md:text-xl uppercase tracking-wider text-black">
