@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Skills() {
   const sectionRef = useRef(null);
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeModal, setActiveModal] = useState(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -38,7 +38,7 @@ export default function Skills() {
       category: "Front End",
       desc: "React framework for production-grade static & server-rendered apps.",
       icon: (
-        <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
+        <svg className="w-10 h-10 fill-current" viewBox="0 0 256 256">
           <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm45.66-109.66a8,8,0,0,0-11.32,0L136,132.69V104a8,8,0,0,0-16,0v48a8,8,0,0,0,13.66,5.66l36-36A8,8,0,0,0,173.66,106.34Z" />
         </svg>
       ),
@@ -48,7 +48,7 @@ export default function Skills() {
       category: "Front End",
       desc: "Component-based declarative library for building user interfaces.",
       icon: (
-        <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
+        <svg className="w-10 h-10 fill-current" viewBox="0 0 256 256">
           <path d="M224,128a16,16,0,0,1-16,16H144v64a16,16,0,0,1-32,0V144H48a16,16,0,0,1,0-32h64V48a16,16,0,0,1,32,0v64h64A16,16,0,0,1,224,128Z" />
         </svg>
       ),
@@ -58,18 +58,59 @@ export default function Skills() {
       category: "Front End",
       desc: "Utility-first styling workflow for rapid responsive layouts.",
       icon: (
-        <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
+        <svg className="w-10 h-10 fill-current" viewBox="0 0 256 256">
           <path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z" />
         </svg>
       ),
     },
     {
-      name: "GSAP",
+      name: "HTML",
+      category: "Front End",
+      desc: "Semantic markup for web structure.",
+      icon: (
+        <svg className="w-10 h-10 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M16 18l6-6-6-6M8 6l-6 6 6 6M12 2l-2 20" />
+        </svg>
+      ),
+    },
+    {
+      name: "CSS",
+      category: "Front End",
+      desc: "Cascading style sheets for web presentation.",
+      icon: (
+        <svg className="w-10 h-10 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+      ),
+    },
+    {
+      name: "GSAP Animation",
       category: "Front End",
       desc: "Advanced scrolling timelines and high-performance WebGL animations.",
       icon: (
-        <svg className="w-8 h-8 fill-current" viewBox="0 0 256 256">
+        <svg className="w-10 h-10 fill-current" viewBox="0 0 256 256">
           <path d="M108,128a20,20,0,1,1-20-20A20,20,0,0,1,108,128Zm80-20a20,20,0,1,0,20,20A20,20,0,0,0,188,108Zm-50,56a20,20,0,1,0,20,20A20,20,0,0,0,138,164Z" />
+        </svg>
+      ),
+    },
+    {
+      name: "JavaScript ES6",
+      category: "Front End",
+      desc: "Modern vanilla JavaScript features and syntax.",
+      icon: (
+        <svg className="w-10 h-10 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+          <path d="M8 17v-4a2 2 0 012-2h0a2 2 0 012 2v4M15 17h-2M15 13h-2" />
+        </svg>
+      ),
+    },
+    {
+      name: "Zustand",
+      category: "Front End",
+      desc: "A small, fast and scalable bearbones state-management solution.",
+      icon: (
+        <svg className="w-10 h-10 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
         </svg>
       ),
     },
@@ -229,13 +270,10 @@ export default function Skills() {
         {/* Right Column: Accordion Categories */}
         <div className="xl:col-span-7 flex flex-col justify-center xl:pl-16 w-full">
           {categoryRows.map((cat) => {
-            const isOpen = activeCategory === cat.id;
-            const items = skillItems.filter(item => item.category === cat.id);
-
             return (
               <div key={cat.id} className="border-b-2 border-black/20 overflow-hidden w-full">
                 <button 
-                  onClick={() => setActiveCategory(isOpen ? "All" : cat.id)}
+                  onClick={() => setActiveModal(cat.id)}
                   className="w-full py-8 md:py-10 flex items-center justify-between text-left group hover:bg-black/5 transition-all duration-300 px-4 -mx-4 rounded-2xl"
                 >
                   <div className="flex items-center gap-6 md:gap-8">
@@ -247,51 +285,80 @@ export default function Skills() {
                       <p className="font-mono text-black/70 text-sm md:text-base mt-2 font-semibold">{cat.desc}</p>
                     </div>
                   </div>
-                  <div className={`text-black p-3 rounded-full border-2 border-black transition-all duration-500 shrink-0 ${isOpen ? 'rotate-90 bg-black text-[#FB64B6]' : 'group-hover:translate-x-2 group-hover:-translate-y-2'}`}>
+                  <div className={`text-black p-3 rounded-full border-2 border-black transition-all duration-500 shrink-0 group-hover:translate-x-2 group-hover:-translate-y-2`}>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 md:w-8 md:h-8">
                       <line x1="7" y1="17" x2="17" y2="7"/>
                       <polyline points="7 7 17 7 17 17"/>
                     </svg>
                   </div>
                 </button>
-                
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.4, ease: "circOut" }}
-                      className="overflow-hidden"
-                    >
-                      <div className="py-6 px-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {items.map(item => (
-                          <motion.div 
-                            key={item.name}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.3 }}
-                            className="flex items-center gap-4 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border-2 border-transparent hover:border-black transition-all duration-300 group/card cursor-default"
-                          >
-                            <div className="text-black/50 group-hover/card:text-black transition-colors duration-300">
-                              {item.icon}
-                            </div>
-                            <div>
-                              <h4 className="font-orbitron font-bold text-black text-lg">{item.name}</h4>
-                              <p className="font-mono text-xs text-black/60 font-semibold">{item.desc}</p>
-                            </div>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </div>
             );
           })}
         </div>
 
       </div>
+
+      {/* Dark Theme Modal Overlay */}
+      <AnimatePresence>
+        {activeModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md p-4 md:p-8"
+            onClick={() => setActiveModal(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-3xl max-h-[85vh] bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden flex flex-col shadow-2xl relative"
+            >
+              {/* Background Watermark Letter */}
+              <div className="absolute right-0 bottom-0 text-[40rem] leading-none font-black text-white/1.5 select-none pointer-events-none translate-x-[15%] translate-y-[15%]">
+                {activeModal.charAt(0)}
+              </div>
+
+              {/* Modal Header */}
+              <div className="flex items-center justify-between p-6 md:p-8 border-b border-white/5 z-10 bg-black/20">
+                <h3 className="font-orbitron font-black text-white tracking-[0.2em] uppercase text-xl md:text-2xl">
+                  {activeModal.toUpperCase()} SKILLS
+                </h3>
+                <button 
+                  onClick={() => setActiveModal(null)}
+                  className="text-white/50 hover:text-white transition-colors p-2"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Modal Body (Scrollable List) */}
+              <div className="flex-1 overflow-y-auto z-10 scrollbar-hide">
+                <div className="flex flex-col py-4 px-2 md:px-6">
+                  {skillItems.filter(item => item.category === activeModal).map((item, idx) => (
+                    <div 
+                      key={idx}
+                      className="flex items-center gap-6 md:gap-8 px-6 py-5 md:py-6 border-b border-white/5 hover:bg-white/3 transition-colors group cursor-default"
+                    >
+                      <div className="text-white/20 group-hover:text-white transition-colors duration-300 w-12 h-12 shrink-0 flex items-center justify-center">
+                        {item.icon}
+                      </div>
+                      <h4 className="font-orbitron font-black text-2xl md:text-4xl lg:text-5xl text-white/90 group-hover:text-white transition-colors tracking-tight">
+                        {item.name}
+                      </h4>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
