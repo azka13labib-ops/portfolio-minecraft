@@ -127,19 +127,53 @@ export default function Skills() {
     },
   ];
 
-  const categories = ["All", "Front End", "Backend", "UI/UX"];
-
-  const filteredItems = skillItems.filter(
-    (item) => activeCategory === "All" || item.category === activeCategory
-  );
+  const categoryRows = [
+    {
+      id: "Front End",
+      title: "Frontend",
+      desc: "Modern interactive interfaces",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 md:w-10 md:h-10">
+          <circle cx="13.5" cy="6.5" r=".5"/>
+          <circle cx="17.5" cy="10.5" r=".5"/>
+          <circle cx="8.5" cy="7.5" r=".5"/>
+          <circle cx="6.5" cy="12.5" r=".5"/>
+          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+        </svg>
+      )
+    },
+    {
+      id: "Backend",
+      title: "Backend",
+      desc: "Robust and scalable APIs",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 md:w-10 md:h-10">
+          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+          <line x1="6" y1="6" x2="6.01" y2="6"/>
+          <line x1="6" y1="18" x2="6.01" y2="18"/>
+        </svg>
+      )
+    },
+    {
+      id: "UI/UX",
+      title: "UI/UX",
+      desc: "Intelligent and innovative solutions",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 md:w-10 md:h-10">
+          <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+        </svg>
+      )
+    }
+  ];
 
   return (
     <section
       ref={sectionRef}
       id="skills"
-      className="relative w-full min-h-screen bg-[#FB64B6] text-white py-32 px-8 md:px-16 lg:px-24 flex flex-col justify-center select-none"
+      className="relative w-full min-h-screen bg-[#FB64B6] text-white py-32 px-6 md:px-12 lg:px-24 flex flex-col justify-center select-none overflow-hidden"
     >
-      {/* Smooth Wavy SVG Divider (Transition from Black to Pink) */}
+      {/* Smooth Wavy SVG Divider */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none transform translate-y-[-99%] pointer-events-none">
         <svg
           className="relative block w-full h-[80px] md:h-[120px]"
@@ -154,74 +188,108 @@ export default function Skills() {
         </svg>
       </div>
 
-      <div className="max-w-6xl mx-auto w-full z-10 flex flex-col gap-16">
+      <div className="max-w-[1400px] mx-auto w-full z-10 grid grid-cols-1 xl:grid-cols-12 gap-16 xl:gap-8 items-start">
         
-        {/* Intro Paragraph (Asymmetrical Typography) */}
-        <div className="max-w-4xl">
-          <p className="font-mono text-white/95 tracking-wider text-base md:text-lg lg:text-xl leading-relaxed">
+        {/* Left Column: Intro Text & Massive Typography */}
+        <div className="xl:col-span-5 flex flex-col relative pt-8">
+          <p className="font-mono text-black/80 tracking-wider text-base md:text-lg leading-relaxed max-w-md">
             This section represents the core{" "}
-            <span className="font-caveat font-bold text-black text-2xl md:text-3xl mx-1 inline-block -rotate-2">
+            <span className="font-caveat font-bold text-white text-2xl md:text-3xl mx-1 inline-block -rotate-2 mix-blend-difference">
               technologies
             </span>{" "}
             and tools I use to build scalable, high-performance web applications with clean architecture and smooth user experiences.
           </p>
-        </div>
-
-        {/* Category Filter Buttons */}
-        <div className="flex flex-wrap gap-3 my-6">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`relative px-6 py-2 rounded-full font-mono text-sm md:text-base font-bold tracking-wider transition-all duration-300 ${
-                activeCategory === cat
-                  ? "text-black shadow-[0_4px_15px_rgba(0,0,0,0.25)]"
-                  : "text-white/80 hover:text-white border border-white/30 hover:border-white/60 bg-transparent"
-              }`}
+          
+          <div className="mt-16 md:mt-24 relative inline-block self-start">
+            <h2 
+              className="font-black text-black leading-[0.8] tracking-tighter uppercase"
+              style={{ fontSize: "clamp(5rem, 18vw, 12rem)", transform: "scaleY(1.3)", transformOrigin: "bottom" }}
             >
-              {activeCategory === cat && (
-                <motion.div
-                  layoutId="activeCategoryPill"
-                  className="absolute inset-0 bg-white rounded-full -z-10"
-                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                />
-              )}
-              {cat}
-            </button>
-          ))}
+              SKILLS
+            </h2>
+            
+            {/* Pink Rotating Badge Overlapping the Text */}
+            <motion.div 
+              animate={{ rotate: 360 }} 
+              transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+              className="absolute -bottom-10 -right-10 md:-bottom-16 md:-right-16 w-32 h-32 md:w-48 md:h-48 bg-[#FB64B6] rounded-full flex items-center justify-center shadow-2xl border-[6px] border-black z-20"
+            >
+              <svg viewBox="0 0 100 100" className="w-full h-full text-black overflow-visible">
+                <path id="circlePath" fill="none" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+                <text className="text-[12px] font-black tracking-[0.2em] font-mono uppercase" fill="currentColor">
+                  <textPath href="#circlePath" startOffset="0%">
+                    CREATIVE DEVELOPER • EXPERT LEVEL • 
+                  </textPath>
+                </text>
+              </svg>
+            </motion.div>
+          </div>
         </div>
 
-        {/* Reusable Skill Card Grid (Solid White on Pink) */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="popLayout">
-            {filteredItems.map((item) => (
-              <motion.div
-                layout
-                key={item.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.3, type: "spring", stiffness: 250, damping: 20 }}
-                whileHover={{ 
-                  scale: 1.03, 
-                  borderColor: "#000000",
-                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)"
-                }}
-                className="skill-card border-2 border-transparent p-6 rounded-2xl bg-white shadow-xl flex flex-col gap-4 cursor-default group"
-              >
-                <div className="text-neutral-400 group-hover:text-black transition-colors duration-300">
-                  {item.icon}
-                </div>
-                <h3 className="font-orbitron font-black text-lg md:text-xl uppercase tracking-wider text-black">
-                  {item.name}
-                </h3>
-                <p className="font-mono text-xs md:text-sm text-neutral-600 leading-relaxed">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        {/* Right Column: Accordion Categories */}
+        <div className="xl:col-span-7 flex flex-col justify-center xl:pl-16 w-full">
+          {categoryRows.map((cat) => {
+            const isOpen = activeCategory === cat.id;
+            const items = skillItems.filter(item => item.category === cat.id);
+
+            return (
+              <div key={cat.id} className="border-b-2 border-black/20 overflow-hidden w-full">
+                <button 
+                  onClick={() => setActiveCategory(isOpen ? "All" : cat.id)}
+                  className="w-full py-8 md:py-10 flex items-center justify-between text-left group hover:bg-black/5 transition-all duration-300 px-4 -mx-4 rounded-2xl"
+                >
+                  <div className="flex items-center gap-6 md:gap-8">
+                    <div className="text-black p-3 bg-white/20 rounded-xl shadow-inner border border-white/30 group-hover:scale-110 transition-transform duration-300">
+                      {cat.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-orbitron font-black text-3xl md:text-4xl lg:text-5xl text-black tracking-tight">{cat.title}</h3>
+                      <p className="font-mono text-black/70 text-sm md:text-base mt-2 font-semibold">{cat.desc}</p>
+                    </div>
+                  </div>
+                  <div className={`text-black p-3 rounded-full border-2 border-black transition-all duration-500 shrink-0 ${isOpen ? 'rotate-90 bg-black text-[#FB64B6]' : 'group-hover:translate-x-2 group-hover:-translate-y-2'}`}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 md:w-8 md:h-8">
+                      <line x1="7" y1="17" x2="17" y2="7"/>
+                      <polyline points="7 7 17 7 17 17"/>
+                    </svg>
+                  </div>
+                </button>
+                
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4, ease: "circOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="py-6 px-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {items.map(item => (
+                          <motion.div 
+                            key={item.name}
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.3 }}
+                            className="flex items-center gap-4 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border-2 border-transparent hover:border-black transition-all duration-300 group/card cursor-default"
+                          >
+                            <div className="text-black/50 group-hover/card:text-black transition-colors duration-300">
+                              {item.icon}
+                            </div>
+                            <div>
+                              <h4 className="font-orbitron font-bold text-black text-lg">{item.name}</h4>
+                              <p className="font-mono text-xs text-black/60 font-semibold">{item.desc}</p>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
 
       </div>
     </section>
