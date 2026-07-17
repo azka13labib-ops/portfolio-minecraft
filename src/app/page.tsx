@@ -118,10 +118,9 @@ export default function Home() {
                 rel="noopener noreferrer"
                 whileHover={{ 
                   scale: 1.2, 
-                  color: "#FB64B6",
-                  filter: "drop-shadow(0 0 8px rgba(251, 100, 182, 0.8))" 
+                  color: "#ffffff"
                 }}
-                className="text-neutral-400 hover:text-[#FB64B6] transition-colors duration-200 text-xl block"
+                className="text-neutral-400 hover:text-white transition-colors duration-200 text-xl block"
               >
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 256 256">
                   <path d={social.path} />

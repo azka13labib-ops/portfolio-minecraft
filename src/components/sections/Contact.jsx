@@ -138,7 +138,6 @@ export default function Contact() {
       </div>
       
       <footer className="absolute bottom-8 text-neutral-600 text-sm font-mono tracking-widest text-center w-full">
-        <p>© {new Date().getFullYear()} AZKA LABIB. ALL RIGHTS RESERVED.</p>
       </footer>
     </section>
   );

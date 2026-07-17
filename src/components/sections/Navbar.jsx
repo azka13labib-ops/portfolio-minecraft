@@ -85,9 +85,9 @@ export default function Navbar() {
     { label: "Download CV", href: "/pdf/CV 2026.pdf", isDownload: true },
   ];
 
-  // Override to white if menu is open, otherwise default to black for Hero
-  const hamburgerStyle = isOpen ? { borderColor: "#ffffff" } : { borderColor: "#000000" };
-  const lineStyle = isOpen ? { backgroundColor: "#ffffff" } : { backgroundColor: "#000000" };
+  // Override to white if menu is open, otherwise default to white for Hero
+  const hamburgerStyle = { borderColor: "#ffffff" };
+  const lineStyle = { backgroundColor: "#ffffff" };
 
   return (
     <>
@@ -106,7 +106,7 @@ export default function Navbar() {
 
       <header className="absolute top-0 left-0 w-full z-50 flex items-center justify-between py-6 px-8 md:px-16 lg:px-24 bg-transparent pointer-events-none">
         {/* Logo */}
-        <a href="#" className="text-[#FB64B6] font-display text-4xl font-bold tracking-widest hover:opacity-80 transition-opacity pointer-events-auto">
+        <a href="#" className="text-white font-display text-4xl font-bold tracking-widest hover:opacity-80 transition-opacity pointer-events-auto">
           Azka
         </a>
 
@@ -145,7 +145,7 @@ export default function Navbar() {
               initial={{ x: b.x - 24, y: b.y - 24, scale: 0.1, opacity: 0.5, rotate: b.rotation, borderRadius: b.borderRadius }}
               animate={{ scale: 2.2, opacity: 0, rotate: b.rotation + b.targetRotation }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="absolute w-12 h-12 bg-[#FB64B6]/30 pointer-events-none z-0"
+              className="absolute w-12 h-12 bg-white/30 pointer-events-none z-0"
               style={{ left: 0, top: 0, transformOrigin: "center" }}
             />
           ))}
@@ -178,7 +178,7 @@ export default function Navbar() {
                   repeatType: "loop",
                 }}
                 fill="#F9F9F9"
-                stroke="#FB64B6"
+                stroke="#d4d4d4"
                 strokeWidth="3"
               />
             </svg>
@@ -196,11 +196,11 @@ export default function Navbar() {
                       href={item.href}
                       download
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-between text-[#FB64B6] hover:text-[#FB64B6]/80 hover:translate-x-1 transition-all duration-200 text-base font-bold uppercase tracking-wider cursor-pointer py-1"
+                      className="flex items-center justify-between text-black hover:text-black/80 hover:translate-x-1 transition-all duration-200 text-base font-bold uppercase tracking-wider cursor-pointer py-1"
                     >
                       <span>{item.label}</span>
                       {/* Chevron Down Icon */}
-                      <svg className="w-4 h-4 text-[#FB64B6]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                       </svg>
                     </a>
@@ -208,7 +208,7 @@ export default function Navbar() {
                     <a
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="block text-neutral-700 hover:text-[#FB64B6] hover:translate-x-1 transition-all duration-200 text-base font-semibold cursor-pointer py-1"
+                      className="block text-neutral-700 hover:text-black hover:translate-x-1 transition-all duration-200 text-base font-semibold cursor-pointer py-1"
                     >
                       {item.label}
                     </a>
