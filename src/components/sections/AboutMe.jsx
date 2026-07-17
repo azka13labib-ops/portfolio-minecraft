@@ -161,21 +161,6 @@ export default function AboutMe() {
           Skills
         </div>
       </div>
-
-      {/* Pink Wave Divider connecting to Skills section */}
-      <div className="absolute bottom-[-1px] left-0 w-full leading-none pointer-events-none z-10">
-        <svg
-          className="relative block w-full h-[120px] md:h-[200px]"
-          viewBox="0 0 1200 200"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0,200 L0,40 C250,160 400,180 600,180 C750,180 800,60 950,60 C1100,60 1150,160 1200,180 L1200,200 Z"
-            fill="#FB64B6"
-          />
-        </svg>
-      </div>
     </section>
   );
 }
