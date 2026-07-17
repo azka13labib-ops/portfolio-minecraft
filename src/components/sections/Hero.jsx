@@ -304,7 +304,7 @@ export default function Hero() {
         </div>
 
         {/* Absolute Left Column: Download CV */}
-        <div className="hero-left-col hidden md:block absolute left-[4%] top-[35%] z-20 w-[300px] 2xl:w-[350px]">
+        <div className="hero-left-col absolute bottom-[18%] md:bottom-auto left-0 md:left-[4%] top-auto md:top-[35%] z-20 w-full md:w-[300px] 2xl:w-[350px] flex justify-center md:block">
           <div className="relative group inline-block">
             <a
               href="/pdf/CV 2026.pdf"
@@ -361,10 +361,10 @@ export default function Hero() {
         </div>
 
         {/* Absolute Right Column: Job Titles */}
-        <div className="hero-right-col hidden md:block absolute right-[4%] top-[30%] z-20 w-[300px] 2xl:w-[350px] whitespace-nowrap">
-          <div className="font-orbitron uppercase text-black font-black text-3xl 2xl:text-3xl scale-y-150 flex flex-col gap-2 items-end text-right">
-            <div className="hero-title-line font-black ml-3 text-black">Fullstack Developer</div>
-            <div className="hero-title-line font-black text-base md:text-lg text-[#FB64B6]">Crafting Digital Products</div>
+        <div className="hero-right-col absolute top-[15%] md:top-[30%] right-0 md:right-[4%] z-20 w-full md:w-[300px] 2xl:w-[350px] whitespace-nowrap flex justify-center md:justify-end">
+          <div className="font-orbitron uppercase text-black font-black text-2xl md:text-3xl 2xl:text-3xl scale-y-150 flex flex-col gap-1 md:gap-2 items-center md:items-end text-center md:text-right">
+            <div className="hero-title-line font-black md:ml-3 text-black">Fullstack Developer</div>
+            <div className="hero-title-line font-black text-sm md:text-base lg:text-lg text-[#FB64B6]">Crafting Digital Products</div>
           </div>
         </div>
 
