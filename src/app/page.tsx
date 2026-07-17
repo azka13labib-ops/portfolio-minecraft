@@ -6,6 +6,7 @@ import Hero from "@/components/sections/Hero";
 import AboutMe from "@/components/sections/AboutMe";
 import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
+import Contact from "@/components/sections/Contact";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -147,6 +148,9 @@ export default function Home() {
 
       {/* Projects Section (Horizontal Scroll Gallery) */}
       <Projects />
+
+      {/* Contact Section (Overlaps Projects with GSAP) */}
+      <Contact />
     </main>
   );
 }
