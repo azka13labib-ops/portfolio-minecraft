@@ -272,6 +272,7 @@ export default function Hero() {
                   src="/img/image.png"
                   alt="Profile photo"
                   fill
+                  sizes="(max-width: 768px) 240px, 300px"
                   priority
                   className="object-cover grayscale"
                   onError={() => setProfileError(true)}

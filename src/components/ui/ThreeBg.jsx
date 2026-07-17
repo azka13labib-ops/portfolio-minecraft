@@ -47,7 +47,7 @@ function Particles() {
 export default function ThreeBg() {
   return (
     <div className="absolute inset-0 z-0 w-full h-full overflow-hidden pointer-events-none">
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }} gl={{ alpha: true }}>
+      <Canvas camera={{ position: [0, 0, 5], fov: 75 }} gl={{ alpha: true, antialias: false }} dpr={[1, 1.5]}>
         <ambientLight intensity={0.5} />
         <Particles />
       </Canvas>

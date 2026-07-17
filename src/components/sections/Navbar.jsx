@@ -99,6 +99,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
+            className="fixed inset-0 w-screen h-screen bg-black/15 backdrop-blur-[2px] z-40 pointer-events-auto cursor-pointer"
           />
         )}
       </AnimatePresence>
@@ -158,7 +159,7 @@ export default function Navbar() {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="absolute top-24 right-4 md:right-16 lg:right-24 w-[280px] h-[310px] z-45 flex items-center justify-center filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)]"
+            className="fixed top-24 right-4 md:right-16 lg:right-24 w-[280px] h-[310px] z-[55] flex items-center justify-center filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] pointer-events-auto"
           >
             {/* Morphing Liquid SVG Background */}
             <svg
