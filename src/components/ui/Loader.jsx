@@ -7,21 +7,27 @@ export default function Loader() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Prevent scrolling while loading
+    // Prevent scrolling and hide navbar while loading
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
+    const navbar = document.getElementById("navbar-container");
+    if (navbar) navbar.style.opacity = "0";
 
     // Keep loader for a short duration
     const timer = setTimeout(() => {
       setLoading(false);
-      // Restore scroll when loading finishes
+      // Restore scroll and navbar when loading finishes
       document.documentElement.style.overflow = "";
       document.body.style.overflow = ""; 
+      const navbar = document.getElementById("navbar-container");
+      if (navbar) navbar.style.opacity = "1";
     }, 2500);
     
     return () => {
       document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
+      const navbar = document.getElementById("navbar-container");
+      if (navbar) navbar.style.opacity = "1";
       clearTimeout(timer);
     };
   }, []);

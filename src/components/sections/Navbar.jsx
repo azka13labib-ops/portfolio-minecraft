@@ -85,7 +85,7 @@ export default function Navbar() {
   const lineStyle = { backgroundColor: "#000000" };
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[999]">
+    <div id="navbar-container" className="fixed inset-0 pointer-events-none z-999 transition-opacity duration-300">
       {/* Click-to-Close Backdrop Overlay when Menu is Open */}
       <AnimatePresence>
         {isOpen && (

@@ -12,6 +12,19 @@ export default function Skills() {
   const [activeModal, setActiveModal] = useState(null);
 
   useEffect(() => {
+    const navbar = document.getElementById("navbar-container");
+    if (navbar) {
+      if (activeModal) {
+        navbar.style.opacity = "0";
+        navbar.style.pointerEvents = "none";
+      } else {
+        navbar.style.opacity = "1";
+        navbar.style.pointerEvents = "none";
+      }
+    }
+  }, [activeModal]);
+
+  useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const cards = gsap.utils.toArray(".skill-card");
