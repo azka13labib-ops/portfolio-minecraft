@@ -60,8 +60,6 @@ export default function Projects() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const cards = gsap.utils.toArray(".project-card");
-    
     let ctx = gsap.context(() => {
       // Small timeout to ensure DOM is fully rendered for accurate width calculation
       setTimeout(() => {
@@ -69,7 +67,7 @@ export default function Projects() {
         
         const totalScrollWidth = scrollWrapperRef.current.scrollWidth - window.innerWidth;
         
-        gsap.to(cards, {
+        gsap.to(scrollWrapperRef.current, {
           x: () => -totalScrollWidth,
           ease: "none",
           scrollTrigger: {
@@ -121,7 +119,7 @@ export default function Projects() {
       {/* Horizontal Scroll Wrapper */}
       <div 
         ref={scrollWrapperRef}
-        className="flex w-fit items-center h-full px-6 md:px-12 lg:px-24 pt-40 pb-16 gap-8 md:gap-16"
+        className="flex w-fit items-center h-full px-6 md:px-12 lg:px-24 pt-40 pb-16 gap-8 md:gap-16 will-change-transform"
       >
         {projectsData.map((project, idx) => (
           <div 
