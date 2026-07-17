@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 export default function Contact() {
   const contactRef = useRef(null);
@@ -61,23 +61,23 @@ export default function Contact() {
           </p>
 
           <div className="contact-content flex flex-col gap-6 mb-12">
-            <a href="mailto:your.email@example.com" className="flex items-center gap-4 text-neutral-300 hover:text-[#FB64B6] transition-colors group">
-              <div className="w-12 h-12 rounded-full border border-neutral-800 flex items-center justify-center bg-neutral-900 group-hover:border-[#FB64B6] transition-all">
+            <a href="mailto:azka13labib@gmail.com" className="flex items-center gap-4 text-neutral-300 hover:text-white transition-colors group">
+              <div className="w-12 h-12 rounded-full border border-neutral-800 flex items-center justify-center bg-neutral-900 group-hover:border-white transition-all">
                 <FaEnvelope className="text-xl" />
               </div>
-              <span className="text-lg font-mono">hello@azkalabib.com</span>
+              <span className="text-lg font-mono">azka13labib@gmail.com</span>
             </a>
           </div>
 
           <div className="contact-content flex gap-4">
-            <a href="https://github.com/azka13labib-ops" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full border border-neutral-800 flex items-center justify-center bg-neutral-900 text-neutral-400 hover:text-white hover:border-[#FB64B6] hover:bg-[#FB64B6]/10 transition-all text-2xl">
+            <a href="https://github.com/azka13labib-ops" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full border border-neutral-800 flex items-center justify-center bg-neutral-900 text-neutral-400 hover:text-white hover:border-white hover:bg-white/10 transition-all text-2xl">
               <FaGithub />
             </a>
-            <a href="#" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full border border-neutral-800 flex items-center justify-center bg-neutral-900 text-neutral-400 hover:text-white hover:border-[#FB64B6] hover:bg-[#FB64B6]/10 transition-all text-2xl">
+            <a href="https://www.linkedin.com/in/azka-labib-abdillah-zain-07797738a/" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full border border-neutral-800 flex items-center justify-center bg-neutral-900 text-neutral-400 hover:text-white hover:border-white hover:bg-white/10 transition-all text-2xl">
               <FaLinkedin />
             </a>
-            <a href="#" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full border border-neutral-800 flex items-center justify-center bg-neutral-900 text-neutral-400 hover:text-white hover:border-[#FB64B6] hover:bg-[#FB64B6]/10 transition-all text-2xl">
-              <FaTwitter />
+            <a href="https://wa.me/6283155761573" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full border border-neutral-800 flex items-center justify-center bg-neutral-900 text-neutral-400 hover:text-white hover:border-white hover:bg-white/10 transition-all text-2xl">
+              <FaWhatsapp />
             </a>
           </div>
         </div>
