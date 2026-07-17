@@ -92,7 +92,7 @@ export default function Projects() {
       className="relative w-full h-screen bg-[#0a0a0a] text-white overflow-hidden flex flex-col justify-center"
     >
       {/* Pink Wave Divider (extends Skills section into Projects) */}
-      <div className="absolute top-[-1px] left-0 w-full leading-none pointer-events-none z-0">
+      <div className="absolute -top-px left-0 w-full leading-none pointer-events-none z-0">
         <svg
           className="relative block w-full h-[100px] md:h-[150px]"
           viewBox="0 0 1200 200"

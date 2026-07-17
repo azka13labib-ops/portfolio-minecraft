@@ -16,11 +16,9 @@ export default function Home() {
   const scrollContainerRef = useRef(null);
 
   useEffect(() => {
-    // Register ScrollTrigger client-side only
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // Unified master timeline for pinning and page transition
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: scrollContainerRef.current,

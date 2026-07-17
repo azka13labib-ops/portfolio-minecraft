@@ -305,7 +305,7 @@ export default function Hero() {
         </div>
 
         {/* Left Column: Download CV (Desktop Only) */}
-        <div className="hero-left-col hidden md:absolute md:left-[4%] md:top-[35%] z-20 md:w-[300px] 2xl:w-[350px] md:flex justify-center md:block">
+        <div className="hero-left-col hidden md:absolute md:left-[4%] md:top-[35%] z-20 md:w-[300px] 2xl:w-[350px] md:flex justify-center">
           <div className="relative group inline-block whitespace-nowrap">
             <a
               href="/pdf/CV 2026.pdf"
