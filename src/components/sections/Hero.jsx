@@ -303,14 +303,14 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Left Column: Download CV */}
-        <div className="hero-left-col absolute left-6 md:left-[4%] top-[60%] md:top-[35%] z-20 flex items-center justify-center w-0 h-0 md:w-[300px] 2xl:w-[350px] md:h-auto md:block">
-          <div className="relative group inline-block -rotate-90 md:rotate-0 whitespace-nowrap">
+        {/* Left Column: Download CV (Desktop Only) */}
+        <div className="hero-left-col hidden md:absolute md:left-[4%] md:top-[35%] z-20 md:w-[300px] 2xl:w-[350px] md:flex justify-center md:block">
+          <div className="relative group inline-block whitespace-nowrap">
             <a
               href="/pdf/CV 2026.pdf"
               download
               onClick={handleDownloadClick}
-              className="download-cv-text text-lg md:text-3xl 2xl:text-4xl text-black font-orbitron font-bold uppercase tracking-wider hover:text-[#FB64B6] transition-colors duration-300 block cursor-pointer origin-left"
+              className="download-cv-text text-3xl 2xl:text-4xl text-black font-orbitron font-bold uppercase tracking-wider hover:text-[#FB64B6] transition-colors duration-300 block cursor-pointer origin-left"
             >
               Download CV
             </a>
@@ -360,12 +360,26 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Job Titles */}
-        <div className="hero-right-col absolute right-8 md:right-[4%] top-[40%] md:top-[30%] z-20 flex items-center justify-center w-0 h-0 md:w-[300px] 2xl:w-[350px] md:h-auto md:justify-end">
-          <div className="font-orbitron uppercase text-black font-black text-lg sm:text-xl md:text-3xl 2xl:text-3xl scale-y-125 md:scale-y-150 flex flex-col gap-1 md:gap-2 items-center md:items-end text-center md:text-right rotate-90 md:rotate-0 whitespace-nowrap">
-            <div className="hero-title-line font-black md:ml-3 text-black">Fullstack Developer</div>
-            <div className="hero-title-line font-black text-[10px] sm:text-xs md:text-base lg:text-lg text-[#FB64B6]">Crafting Digital Products</div>
+        {/* Right Column: Job Titles (Desktop Only) */}
+        <div className="hero-right-col hidden md:absolute md:top-[30%] md:right-[4%] z-20 md:w-[300px] 2xl:w-[350px] md:flex justify-center md:justify-end">
+          <div className="font-orbitron uppercase text-black font-black text-3xl 2xl:text-3xl scale-y-150 flex flex-col gap-2 items-end text-right whitespace-nowrap">
+            <div className="hero-title-line font-black ml-3 text-black">Fullstack Developer</div>
+            <div className="hero-title-line font-black text-base lg:text-lg text-[#FB64B6]">Crafting Digital Products</div>
           </div>
+        </div>
+
+        {/* Mobile Only: Job Title & Download CV (Clean layout for mobile) */}
+        <div className="absolute top-[80%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20 md:hidden w-[90%] pointer-events-auto">
+          <div className="font-orbitron uppercase text-black font-black text-xl text-center scale-y-125">
+            Fullstack Developer
+          </div>
+          <a
+            href="/pdf/CV 2026.pdf"
+            download
+            className="text-xs bg-[#FB64B6] text-white font-bold px-6 py-2.5 rounded-full uppercase tracking-widest shadow-[0_0_15px_rgba(251,100,182,0.4)] active:scale-95 transition-transform"
+          >
+            Download CV
+          </a>
         </div>
 
         {/* Absolute Bottom Left: Welcome Tagline */}
