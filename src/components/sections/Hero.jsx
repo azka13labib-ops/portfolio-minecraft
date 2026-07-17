@@ -234,10 +234,10 @@ export default function Hero() {
       </div>
 
       {/* Content Layer (Layer 3, z-20) */}
-      <div className="absolute inset-0 z-20 w-full h-full flex items-center justify-center">
+      <div className="absolute inset-0 z-20 w-full h-full flex flex-col md:flex-row items-center justify-center pt-24 pb-8 md:pt-0 md:pb-0 gap-6 md:gap-0 overflow-hidden md:overflow-visible">
         
         {/* Centered Avatar Box */}
-        <div className="relative hero-avatar-box">
+        <div className="relative hero-avatar-box order-2 md:order-none shrink-0 transform scale-90 md:scale-100">
           
           {/* Rotating Circular Badge "AVAILABLE FOR WORK" (Floating Top-Right) */}
           <div className="absolute right-[-35px] top-[-35px] w-20 h-20 z-30 select-none pointer-events-none">
@@ -303,14 +303,14 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Absolute Left Column: Download CV */}
-        <div className="hero-left-col absolute bottom-[18%] md:bottom-auto left-0 md:left-[4%] top-auto md:top-[35%] z-20 w-full md:w-[300px] 2xl:w-[350px] flex justify-center md:block">
+        {/* Left Column: Download CV */}
+        <div className="hero-left-col relative md:absolute left-auto md:left-[4%] top-auto md:top-[35%] z-20 w-full md:w-[300px] 2xl:w-[350px] flex justify-center md:block order-3 md:order-none shrink-0">
           <div className="relative group inline-block">
             <a
               href="/pdf/CV 2026.pdf"
               download
               onClick={handleDownloadClick}
-              className="download-cv-text text-3xl 2xl:text-4xl text-black font-orbitron font-bold uppercase tracking-wider hover:text-[#FB64B6] transition-colors duration-300 block cursor-pointer origin-left"
+              className="download-cv-text text-2xl md:text-3xl 2xl:text-4xl text-black font-orbitron font-bold uppercase tracking-wider hover:text-[#FB64B6] transition-colors duration-300 block cursor-pointer origin-center md:origin-left"
             >
               Download CV
             </a>
@@ -360,11 +360,11 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Absolute Right Column: Job Titles */}
-        <div className="hero-right-col absolute top-[15%] md:top-[30%] right-0 md:right-[4%] z-20 w-full md:w-[300px] 2xl:w-[350px] whitespace-nowrap flex justify-center md:justify-end">
-          <div className="font-orbitron uppercase text-black font-black text-2xl md:text-3xl 2xl:text-3xl scale-y-150 flex flex-col gap-1 md:gap-2 items-center md:items-end text-center md:text-right">
+        {/* Right Column: Job Titles */}
+        <div className="hero-right-col relative md:absolute top-auto md:top-[30%] right-auto md:right-[4%] z-20 w-full md:w-[300px] 2xl:w-[350px] whitespace-nowrap flex justify-center md:justify-end order-1 md:order-none shrink-0 mb-4 md:mb-0">
+          <div className="font-orbitron uppercase text-black font-black text-xl sm:text-2xl md:text-3xl 2xl:text-3xl scale-y-125 md:scale-y-150 flex flex-col gap-1 md:gap-2 items-center md:items-end text-center md:text-right">
             <div className="hero-title-line font-black md:ml-3 text-black">Fullstack Developer</div>
-            <div className="hero-title-line font-black text-sm md:text-base lg:text-lg text-[#FB64B6]">Crafting Digital Products</div>
+            <div className="hero-title-line font-black text-xs sm:text-sm md:text-base lg:text-lg text-[#FB64B6]">Crafting Digital Products</div>
           </div>
         </div>
 
