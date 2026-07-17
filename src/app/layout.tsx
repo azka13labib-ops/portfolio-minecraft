@@ -34,7 +34,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${orbitron.variable} ${caveat.variable} ${spaceMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black text-white selection:bg-[#FB64B6] selection:text-black">
+      <body className="min-h-full flex flex-col bg-black text-white selection:bg-[#FB64B6] selection:text-black overflow-x-hidden">
         {children}
       </body>
     </html>
