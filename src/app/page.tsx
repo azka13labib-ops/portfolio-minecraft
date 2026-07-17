@@ -10,7 +10,6 @@ import Contact from "@/components/sections/Contact";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Loader from "@/components/ui/Loader";
 
 export default function Home() {
   const scrollContainerRef = useRef(null);
@@ -41,6 +40,32 @@ export default function Home() {
         }
       );
 
+      // 1b. Animate navbar colors from black to white synchronously
+      tl.to(
+        "#nav-logo",
+        {
+          color: "#ffffff",
+          ease: "none",
+        },
+        0 // starts at the exact beginning of the timeline
+      );
+      tl.to(
+        ".nav-hamburger",
+        {
+          borderColor: "#ffffff",
+          ease: "none",
+        },
+        0
+      );
+      tl.to(
+        ".nav-hamburger-line",
+        {
+          backgroundColor: "#ffffff",
+          ease: "none",
+        },
+        0
+      );
+
       // 2. Synchronously scrub-reveal About Me words as the page slides up
       tl.to(
         ".reveal-word",
@@ -65,7 +90,6 @@ export default function Home() {
   return (
     <main className="relative bg-black w-full min-h-screen">
       {/* Navigation */}
-      <Loader />
       <Navbar />
 
 

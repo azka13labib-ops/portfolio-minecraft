@@ -1,21 +1,15 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isPink, setIsPink] = useState(false);
 
   const [clickBlobs, setClickBlobs] = useState([]);
   const clickBlobNextId = useRef(0);
 
   const toggleMenu = () => setIsOpen(!isOpen);
-
-  // SVG paths for the morphing liquid borders (280x300 canvas size)
-  const path1 = "M20,20 Q140,10 260,20 Q270,150 260,280 Q140,290 20,280 Q10,150 20,20 Z";
-  const path2 = "M25,15 Q145,20 255,18 Q268,145 258,282 Q135,295 22,278 Q12,155 25,15 Z";
-  const path3 = "M15,25 Q135,15 262,22 Q272,155 262,278 Q145,285 18,282 Q8,145 15,25 Z";
 
   const cardVariants = {
     initial: {
@@ -86,44 +80,9 @@ export default function Navbar() {
     { label: "Download CV", href: "/pdf/CV 2026.pdf", isDownload: true },
   ];
 
-  // Override to white if menu is open, otherwise default to white for Hero
-  const hamburgerStyle = { borderColor: "#ffffff" };
-  const lineStyle = { backgroundColor: "#ffffff" };
-
-  // Detect if navbar is over a pink background
-  useEffect(() => {
-    const handleScroll = () => {
-      let overPink = false;
-      const skillsEl = document.getElementById("skills");
-      const projEl = document.getElementById("projects");
-      
-      if (skillsEl) {
-        const rect = skillsEl.getBoundingClientRect();
-        if (rect.top <= 80 && rect.bottom >= 20) {
-          overPink = true;
-        }
-      }
-      
-      if (projEl) {
-        const rect = projEl.getBoundingClientRect();
-        // The pink wave at the top of projects extends down ~100-150px
-        if (rect.top <= 80 && rect.top >= -70) {
-          overPink = true;
-        }
-      }
-      
-      setIsPink(overPink);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    // Check initially after a short delay to allow DOM to render
-    const timer = setTimeout(handleScroll, 500);
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(timer);
-    };
-  }, []);
+  // Default to black for Hero section. GSAP will animate this to white.
+  const hamburgerStyle = { borderColor: "#000000" };
+  const lineStyle = { backgroundColor: "#000000" };
 
   return (
     <div className="fixed inset-0 pointer-events-none z-100">
@@ -135,13 +94,13 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 w-screen h-screen bg-black/15 backdrop-blur-[2px] z-40 pointer-events-auto cursor-pointer"
+            className="fixed inset-0 w-screen h-screen bg-black/15 z-40 pointer-events-auto cursor-pointer"
           />
         )}
       </AnimatePresence>
-      <header className={`absolute top-0 left-0 w-full flex items-center justify-between py-6 px-8 md:px-16 lg:px-24 bg-transparent pointer-events-none transition-colors ${isPink ? "" : "mix-blend-difference"}`}>
+      <header className="absolute top-0 left-0 w-full z-50 flex items-center justify-between py-6 px-8 md:px-16 lg:px-24 bg-transparent pointer-events-none transition-colors">
         {/* Logo */}
-        <a href="#" className="text-white font-display text-4xl font-bold tracking-widest hover:opacity-80 transition-opacity pointer-events-auto">
+        <a id="nav-logo" href="#" className="text-black font-display text-4xl font-bold tracking-widest hover:opacity-80 transition-opacity pointer-events-auto">
           Azka
         </a>
 
@@ -155,19 +114,19 @@ export default function Navbar() {
           <div className="relative w-6 h-6 flex items-center justify-center z-10 pointer-events-none">
             <span
               style={lineStyle}
-              className={`nav-hamburger-line h-0.5 w-full bg-black absolute transition-all duration-300 ${
+              className={`nav-hamburger-line h-0.5 w-full absolute transition-all duration-300 ${
                 isOpen ? "rotate-45" : "-translate-y-1.5"
               }`}
             />
             <span
               style={lineStyle}
-              className={`nav-hamburger-line h-0.5 w-full bg-black absolute transition-all duration-200 ${
+              className={`nav-hamburger-line h-0.5 w-full absolute transition-all duration-200 ${
                 isOpen ? "opacity-0" : ""
               }`}
             />
             <span
               style={lineStyle}
-              className={`nav-hamburger-line h-0.5 w-full bg-black absolute transition-all duration-300 ${
+              className={`nav-hamburger-line h-0.5 w-full absolute transition-all duration-300 ${
                 isOpen ? "-rotate-45" : "translate-y-1.5"
               }`}
             />
@@ -187,7 +146,7 @@ export default function Navbar() {
         </button>
       </header>
 
-      {/* Popover Dropdown Menu Card (Liquid Morphing Border & Neat Column List) */}
+      {/* Popover Dropdown Menu Card */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -195,29 +154,8 @@ export default function Navbar() {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="absolute top-24 right-4 md:right-16 lg:right-24 w-[280px] h-[310px] flex items-center justify-center filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] pointer-events-auto"
+            className="absolute top-24 right-4 md:right-16 lg:right-24 w-[280px] h-[310px] flex items-center justify-center pointer-events-auto backdrop-blur-md bg-white/85 rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.12)] border border-white/50 overflow-hidden"
           >
-            {/* Morphing Liquid SVG Background */}
-            <svg
-              className="absolute inset-0 w-full h-full"
-              viewBox="0 0 280 300"
-              preserveAspectRatio="none"
-            >
-              <motion.path
-                d={path1}
-                animate={{ d: [path1, path2, path3, path1] }}
-                transition={{
-                  duration: 6,
-                  ease: "easeInOut",
-                  repeat: Infinity,
-                  repeatType: "loop",
-                }}
-                fill="#F9F9F9"
-                stroke="#d4d4d4"
-                strokeWidth="3"
-              />
-            </svg>
-
             {/* Clean Vertical Links (Perfect Readability & Alignment) */}
             <nav className="relative w-full h-full z-10 px-8 py-7 flex flex-col justify-center gap-3 font-sans">
               {menuItems.map((item, idx) => (
